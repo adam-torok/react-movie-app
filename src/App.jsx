@@ -1,5 +1,7 @@
-import { useEffect } from "react";
-import Header from './components/nav/Header'
+import { useEffect, useState } from "react";
+import Header from './components/nav/Header';
+import Card from './components/movie/Card';
+
 import './app.css';
 
 const App = () => {
@@ -18,9 +20,22 @@ const App = () => {
     return (
         <>
             <Header />
-            <h1 className="text-3xl font-bold underline">
-                Hello world!
-            </h1>
+            <div className="mx-auto flex max-w-7xl items-cente flex-col justify-between p-6 lg:px-8">
+                <h1 className="text-3xl font-bold text-center">🍿 React Movie App</h1>
+
+                <div>
+                    <input
+                        onChange={(e) => {
+                            searchMovies(e);
+                        }}
+                        placeholder="Search for movies"
+                        type="text" />
+                </div>
+
+                <div className="cards--container">
+                    <Card />
+                </div>
+            </div>
         </>
     );
 }
