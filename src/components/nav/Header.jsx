@@ -1,26 +1,17 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
-    ArrowPathIcon,
     Bars3Icon,
-    ChartPieIcon,
     CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
     XMarkIcon,
+    FilmIcon
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { Link } from 'react-router-dom'
 
 const products = [
-    { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-    { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-    { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-    { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
-]
-const callsToAction = [
-    { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-    { name: 'Contact sales', href: '#', icon: PhoneIcon },
+    { name: 'Search movies', description: 'Search throughout different movies', href: '#', icon: FilmIcon },
+    { name: 'Give me a random movie', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
 ]
 
 function classNames(...classes) {
@@ -31,12 +22,13 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-        <header className="bg-white">
+        <header className="bg-dark text-white">
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1">
-                    <a href="#" className="text-5xl flex gap-3 items-center justify-center">
-                        🍿 <small className="text-2xl"><b>Movie Night</b></small>
-                    </a>
+                    <Link to={'/'} className="text-5xl flex gap-3 items-center justify-center">
+                        <FilmIcon />
+                        <small className="text-xl"><b>Movie Night</b></small>
+                    </Link>
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -51,7 +43,7 @@ export default function Header() {
                 <Popover.Group className="hidden lg:flex lg:gap-x-12">
                     <Popover className="relative">
                         <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-                            Product
+                            Movies
                             <ChevronDownIcon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
                         </Popover.Button>
 
@@ -65,7 +57,7 @@ export default function Header() {
                             leaveTo="opacity-0 translate-y-1"
                         >
                             <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
-                                <div className="p-4">
+                                <div className="p-4 dark:text-white">
                                     {products.map((item) => (
                                         <div
                                             key={item.name}
@@ -75,7 +67,7 @@ export default function Header() {
                                                 <item.icon className="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
                                             </div>
                                             <div className="flex-auto">
-                                                <a href={item.href} className="block font-semibold text-gray-900">
+                                                <a href={item.href} className="block font-semibold text-gray-900 dark:text-white">
                                                     {item.name}
                                                     <span className="absolute inset-0" />
                                                 </a>
@@ -84,30 +76,12 @@ export default function Header() {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                                    {callsToAction.map((item) => (
-                                        <a
-                                            key={item.name}
-                                            href={item.href}
-                                            className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-100"
-                                        >
-                                            <item.icon className="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-                                            {item.name}
-                                        </a>
-                                    ))}
-                                </div>
                             </Popover.Panel>
                         </Transition>
                     </Popover>
 
                     <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Features
-                    </a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Marketplace
-                    </a>
-                    <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-                        Company
+                        About the project
                     </a>
                 </Popover.Group>
             </nav>
@@ -145,18 +119,6 @@ export default function Header() {
                                                     aria-hidden="true"
                                                 />
                                             </Disclosure.Button>
-                                            <Disclosure.Panel className="mt-2 space-y-2">
-                                                {[...products, ...callsToAction].map((item) => (
-                                                    <Disclosure.Button
-                                                        key={item.name}
-                                                        as="a"
-                                                        href={item.href}
-                                                        className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                                    >
-                                                        {item.name}
-                                                    </Disclosure.Button>
-                                                ))}
-                                            </Disclosure.Panel>
                                         </>
                                     )}
                                 </Disclosure>
