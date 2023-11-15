@@ -3,7 +3,7 @@
 [x] Use API for fetching movies
 [] Add a few more pages
 [] Add dark and light mode
-[] Make frontend with tailwindcss
+[x] Make frontend with tailwindcss
 [x] Use .env for api keys etc
 [] Search for best practices
 [x] Adding a router
