@@ -4,6 +4,8 @@ import WelcomeDialog from './components/common/Dialog';
 import Landing from './components/pages/Landing';
 import Movies from './components/pages/Movies';
 import './app.css';
+import Footer from './components/nav/Footer';
+import 'flowbite';
 
 const App = () => {
     return (
@@ -16,6 +18,7 @@ const App = () => {
                     <Route exact path='/movies' element={<Movies />}></Route>
                 </Routes>
             </Router>
+            <Footer />
         </>
     );
 }
