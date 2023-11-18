@@ -1,27 +1,22 @@
 const Card = (props) => {
     return (
         <>
-            <a target="_blank" href={`https://www.imdb.com/title/${props.movie.imdbID}/`} className='flex max-w-sm w-full bg-white shadow-lg rounded-lg overflow-hidden mx-auto' rel="noreferrer">
-                <div className="w-full overflow-hidden rounded-xl relative transform hover:-translate-y-2 transition ease-in-out duration-500 shadow-lg hover:shadow-2xl movie-item text-white movie-card" data-movie-id="438631">
-                    <div className="absolute inset-0 z-10 transition duration-300 ease-in-out bg-gradient-to-t from-black via-gray-900 to-transparent"></div>
-                    <div className="relative cursor-pointer group z-10 px-10 pt-10 space-y-6 movie_info" data-lity="" href="https://www.youtube.com/embed/aSHs224Dge0">
-                        <div className="poster__info align-self-end w-full">
-                            <div className="h-32"></div>
-                            <div className="space-y-6 detail_info">
-                                <div className="flex flex-col space-y-2 inner mb-5">
-                                    <div className="relative flex items-center w-min flex-shrink-0 p-1 text-center text-white bg-red-500 rounded-full group-hover:bg-red-700" data-unsp-sanitized="clean">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fillRule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM9.555 7.168A1 1 0 0 0 8 8v4a1 1 0 0 0 1.555.832l3-2a1 1 0 0 0 0-1.664l-3-2z" clipRule="evenodd"></path>
-                                        </svg>
-                                        <div className="absolute transition opacity-0 duration-500 ease-in-out transform group-hover:opacity-100 group-hover:translate-x-16 text-xl font-bold text-white group-hover:pr-2">Trailer</div>
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-white" data-unsp-sanitized="clean">{props.movie.Title}</h3>
-                                    <div className="mb-5 text-lg text-gray-400">{props.movie.Year}</div>
-                                </div>
-                            </div>
-                        </div>
+            <a target="_blank" href={`https://www.imdb.com/title/${props.movie.imdbID}/`} rel="noreferrer">
+                <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <img className="rounded-t-lg" src={props.movie.Poster !== 'N/A' ? props.movie.Poster : 'https://placehold.co/600x400'} alt={props.movie.Title} />
+                    <div className="p-5">
+                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{props.movie.Title}</h5>
+                        <small className="text-gray-200">{props.movie.Year}</small>
+                        <p className="mb-3 font-ormal text-gray-700 dark:text-gray-400">
+                            {props.movie.Title}
+                        </p>
+                        <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                            Read more
+                            <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                            </svg>
+                        </a>
                     </div>
-                    <img className="absolute inset-0 transform w-full -translate-y-4" src={props.movie.Poster !== 'N/A' ? props.movie.Poster : 'https://placehold.co/600x400'} />
                 </div>
             </a>
         </>

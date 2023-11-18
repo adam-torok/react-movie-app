@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Card from '../../components/movie/Card';
+import Card from '../components/movie/Card';
 
 
 export default function Movies() {
