@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.cards--container {
-}
-
-.root {
-	min-height: 100vh;
-	background-color: #ffffff;
-	background-attachment: fixed;
-}
-
-.landing--lottie {
-	width: 500px;
-}
-
-.primary {
-	background: #ff5b64;
-}
-
 .landing--hero {
 	background-image: linear-gradient(rgba(0, 0, 0, 0), #111827),
 		url('assets/landing.jpg');
